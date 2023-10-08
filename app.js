@@ -1,7 +1,7 @@
-const express = require("express");
+import express from 'express'
 const router = express.Router();
-const cors = require("cors");
-const nodemailer = require("nodemailer");
+import cors from 'cors'
+import nodemailer from 'nodemailer'
 
 const app = express();
 app.use(cors());
@@ -13,7 +13,7 @@ const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: "mahajanashok0709@gmail.com",
-    pass: "vcuvjpoxrmvywkmx"
+    pass: "olzakimggosivial"
   },
 });
 
@@ -40,7 +40,7 @@ router.post("/contact", (req, res) => {
            <p>Message: ${message}</p>`,
   };
   contactEmail.sendMail(mail, (error) => {
-    if (error ) {
+    if (error) {
       res.json(error);
     } else {
       res.json({ code: 200, status: "Message Sent" });
